@@ -1,0 +1,3 @@
+source "https://artifacts.unidata.ucar.edu/repository/gems/" do
+  gem "unidata-jekyll-theme"
+end

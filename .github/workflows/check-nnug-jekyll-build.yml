@@ -1,0 +1,25 @@
+name: Check Jekyll Build
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'NUG-new/**'
+
+jobs:
+  # Job to test that web pages build
+  jekyll_build:
+    name: Jekyll build of web pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build with Jekyll
+        uses: nigelbritton/jekyll-build-action@v1.1
+
+      - name: Upload NNUG Website artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: NNUG Website
+          path: ./_site/
